@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components"
-import { WeatherIcons } from "../App"
+import React from "react";
+import styled from "styled-components";
+import { WeatherIcons } from "../App";
 
 export const WeatherInfoIcons = {
     sunset: "/imgs/temp.png",
@@ -8,14 +8,14 @@ export const WeatherInfoIcons = {
     humidity: "/imgs/humidity.png",
     wind: "/imgs/wind.png",
     pressure: "/imgs/pressure.png",
-}
+};
 
 const Location = styled.span`
   margin: 15px auto;
   text-transform: capitalize;
   font-size: 28px;
   font-weight: bold;
-`
+`;
 
 const Condition = styled.span`
   margin: 20px auto;
@@ -24,7 +24,7 @@ const Condition = styled.span`
   & span {
     font-size: 28px;
   }
-`
+`;
 
 const WeatherInfoLabel = styled.span`
   margin: 20px 25px 10px;
@@ -33,13 +33,13 @@ const WeatherInfoLabel = styled.span`
   width: 90%;
   font-weight: bold;
   font-size: 14px;
-`
+`;
 
 const WeatherIcon = styled.img`
   width: 125px;
   height: 100px;
   margin: 5px auto;
-`
+`;
 
 const WeatherContainer = styled.div`
   display: flex;
@@ -48,7 +48,7 @@ const WeatherContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const WeatherInfoContainer = styled.div`
   display: flex;
@@ -57,7 +57,7 @@ const WeatherInfoContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-`
+`;
 
 const InfoContainer = styled.div`
   display: flex;
@@ -65,14 +65,14 @@ const InfoContainer = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-`
+`;
 
 const InfoIcon = styled.img`
   width: 30px;
   height: 3opx;
   color: white;
   fill: white;
-`
+`;
 
 const InfoLabel = styled.span`
   display: flex;
@@ -83,10 +83,10 @@ const InfoLabel = styled.span`
     font-size: 12px;
     text-transform: capitalize;
   }
-`
+`;
 
 const WeatherInfoComponent = (props) => {
-    const {name, value} = props
+    const {name, value} = props;
     return (
         <InfoContainer>
             <InfoIcon src={WeatherInfoIcons[name]} />
@@ -96,14 +96,14 @@ const WeatherInfoComponent = (props) => {
             </InfoLabel>
         </InfoContainer>
     )
-}
+};
 
 const WeatherComponent = (props) => {
-    const {weather} = props
-    const isDay = weather?.weather[0].icon?.includes('d')
+    const {weather} = props;
+    const isDay = weather?.weather[0].icon?.includes("d");
     const getTime = (timeStamp) => {
         return `${new Date(timeStamp * 1000).getHours()} : ${new Date(timeStamp * 1000).getMinutes()}`
-    }
+    };
 
     return (
         <>
@@ -133,6 +133,6 @@ const WeatherComponent = (props) => {
             </WeatherInfoContainer>
         </>
     )
-}
+};
 
-export default WeatherComponent
+export default WeatherComponent;

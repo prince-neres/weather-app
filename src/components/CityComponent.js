@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import React from 'react'
-import { WeatherIcons } from '../App'
+import styled from "styled-components";
+import React from "react";
+import { WeatherIcons } from "../App";
 
 const SearchBox = styled.form`
   display: flex;
@@ -26,37 +26,37 @@ const SearchBox = styled.form`
     cursor: pointer;
     font-weight: bold;
   }
-`
+`;
 
 const ChooseCityLabel = styled.span`
   color: white;
   margin: 10px auto;
   font-size: 18px;
   font-weight: bold;
-`
+`;
 
 const WelcomeWeatherLogo = styled.img`
   width: 250px;
   height: 200px;
   margin: 40px auto;
-`
+`;
 
 const CityComponent = (props) => {
-  const { updateCity, fetchWeather } = props
+  const { updateCity, fetchWeather } = props;
 
   return (
     <>
-      <WelcomeWeatherLogo src={WeatherIcons['04d']}/>
+      <WelcomeWeatherLogo src={WeatherIcons["04d"]}/>
       <ChooseCityLabel>Find Weather of your city</ChooseCityLabel>
       <SearchBox onSubmit={fetchWeather}>
         <input
           onChange={(e) => updateCity(e.target.value)}
-          placeholder='City'
+          placeholder="City"
         />
-        <button type={'submit'}>Search</button>
+        <button type={"submit"}>Search</button>
       </SearchBox>
     </>
   )
-}
+};
 
-export default CityComponent
+export default CityComponent;

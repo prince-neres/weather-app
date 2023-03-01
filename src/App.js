@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import Axios from 'axios'
-import CityComponent from './components/CityComponent'
-import WeatherComponent from './components/WeatherInfoComponent'
+import React, { useState } from "react";
+import styled from "styled-components";
+import Axios from "axios";
+import CityComponent from "./components/CityComponent";
+import WeatherComponent from "./components/WeatherInfoComponent";
 
 export const WeatherIcons = {
   "01d": "/imgs/sunny.png",
@@ -19,7 +19,7 @@ export const WeatherIcons = {
   "10n": "/imgs/rain-night.png",
   "11d": "/imgs/storm.png",
   "11n": "/imgs/storm.png",
-}
+};
 
 const Card = styled.div`
   display: flex;
@@ -33,25 +33,25 @@ const Card = styled.div`
   border-radius: 5px;
   background-color: rgba(255, 255, 255, .15);
   backdrop-filter: blur(5px);
-`
+`;
 
 const Title = styled.span`
   color: white;
   margin: 20px auto;
   font-size: 18px;
   font-weight: bold;
-`
+`;
 
 function App() {
-  const [city, updateCity] = useState()
-  const [weather, updateWeather] = useState()
+  const [city, updateCity] = useState();
+  const [weather, updateWeather] = useState();
   const fetchWeather = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const response = await Axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WHEATHER_KEY}`,
-    )
-    updateWeather(response.data)
-  }
+    );
+    updateWeather(response.data);
+  };
   return (
     <Card>
       <Title>Weather App</Title>
@@ -62,6 +62,6 @@ function App() {
       )}
     </Card>
   )
-}
+};
 
-export default App
+export default App;
