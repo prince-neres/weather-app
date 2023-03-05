@@ -1,4 +1,4 @@
-# Aplicação de Clima
+# Weather App
 
 Aplicação em React.Js que mostra as informações do clima em tempo real da cidade pesquisada, consumindo a [Weather API](https://openweathermap.org/api).
 
