@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Axios from "axios";
-import CityComponent from "./components/CityComponent";
-import WeatherComponent from "./components/WeatherInfoComponent";
+import City from "./components/City";
+import Weather from "./components/WeatherInfo.js";
 
 export const WeatherIcons = {
   "01d": "/imgs/sunny.png",
@@ -31,8 +31,7 @@ const Card = styled.div`
   color: white;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
+  background-color: #4d4d4d;
   @media (max-width: 768px) {
     width: 280px;
   }
@@ -45,23 +44,48 @@ const Title = styled.span`
   font-weight: bold;
 `;
 
+const Back = styled.button`
+  font-weight: bold;
+	padding 10px;
+  border: none;
+  margin-left: 0;
+  cursor: pointer;
+  border-radius: 10px;
+  height: 40px;
+  background-color: gray;
+  color: white;
+`;
+
 function App() {
   const [city, updateCity] = useState();
-  const [weather, updateWeather] = useState();
+  const [weather, updateWeather] = useState(
+    JSON.parse(localStorage.getItem("weather"))
+  );
+  const [show, setShow] = useState(localStorage.getItem("weather") !== null);
+
   const fetchWeather = async (e) => {
     e.preventDefault();
     const response = await Axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WHEATHER_KEY}`
     );
+    localStorage.setItem("weather", JSON.stringify(response.data));
     updateWeather(response.data);
+    setShow(true);
   };
+
+  const back = () => setShow(false);
+
   return (
     <Card>
       <Title>Weather App</Title>
-      {city && weather ? (
-        <WeatherComponent weather={weather} city={city} />
+
+      {show ? (
+        <>
+          <Back onClick={back}>Change City</Back>
+          <Weather weather={weather} updateWeather={updateWeather} />
+        </>
       ) : (
-        <CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
+        <City updateCity={updateCity} fetchWeather={fetchWeather} />
       )}
     </Card>
   );

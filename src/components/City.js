@@ -50,13 +50,11 @@ const ButtonSearch = styled.button`
   border-radius: 0 10px 10px 0;
 `;
 
-const CityComponent = (props) => {
-  const { updateCity, fetchWeather } = props;
-
+const City = ({ updateCity, fetchWeather }) => {
   return (
     <>
       <WelcomeWeatherLogo src={WeatherIcons["04d"]} />
-      <ChooseCityLabel>Find Weather of your city</ChooseCityLabel>
+      <ChooseCityLabel>Find weather of your city</ChooseCityLabel>
       <SearchBox onSubmit={fetchWeather}>
         <InputCity
           onChange={(e) => updateCity(e.target.value)}
@@ -68,4 +66,4 @@ const CityComponent = (props) => {
   );
 };
 
-export default CityComponent;
+export default City;

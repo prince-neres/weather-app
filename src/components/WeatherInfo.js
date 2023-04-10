@@ -36,9 +36,9 @@ const WeatherInfoLabel = styled.span`
 `;
 
 const WeatherIcon = styled.img`
-  width: 125px;
-  height: 100px;
   margin: 5px auto;
+  width: 200px;
+  aspect-ratio: auto;
 `;
 
 const WeatherContainer = styled.div`
@@ -85,8 +85,7 @@ const InfoLabel = styled.span`
   }
 `;
 
-const WeatherInfoComponent = (props) => {
-  const { name, value } = props;
+const WeatherInfo = ({ name, value }) => {
   return (
     <InfoContainer>
       <InfoIcon src={WeatherInfoIcons[name]} />
@@ -98,8 +97,7 @@ const WeatherInfoComponent = (props) => {
   );
 };
 
-const WeatherComponent = (props) => {
-  const { weather } = props;
+const Weather = ({ weather }) => {
   const isDay = weather?.weather[0].icon?.includes("d");
   const getTime = (timeStamp) => {
     return `${new Date(timeStamp * 1000).getHours()} : ${new Date(
@@ -120,22 +118,16 @@ const WeatherComponent = (props) => {
 
       <WeatherInfoLabel>Weather Info</WeatherInfoLabel>
       <WeatherInfoContainer>
-        <WeatherInfoComponent
+        <WeatherInfo
           name={isDay ? "sunset" : "sunrise"}
           value={`${getTime(weather?.sys[isDay ? "sunset" : "sunrise"])}`}
         />
-        <WeatherInfoComponent
-          name={"humidity"}
-          value={weather?.main?.humidity}
-        />
-        <WeatherInfoComponent name={"wind"} value={weather?.wind?.speed} />
-        <WeatherInfoComponent
-          name={"pressure"}
-          value={weather?.main?.pressure}
-        />
+        <WeatherInfo name={"humidity"} value={weather?.main?.humidity} />
+        <WeatherInfo name={"wind"} value={weather?.wind?.speed} />
+        <WeatherInfo name={"pressure"} value={weather?.main?.pressure} />
       </WeatherInfoContainer>
     </>
   );
 };
 
-export default WeatherComponent;
+export default Weather;
