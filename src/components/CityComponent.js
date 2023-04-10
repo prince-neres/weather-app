@@ -41,22 +41,31 @@ const WelcomeWeatherLogo = styled.img`
   margin: 40px auto;
 `;
 
+const InputCity = styled.input`
+  height: 25 px;
+  border-radius: 10px 0 0 10px;
+`;
+
+const ButtonSearch = styled.button`
+  border-radius: 0 10px 10px 0;
+`;
+
 const CityComponent = (props) => {
   const { updateCity, fetchWeather } = props;
 
   return (
     <>
-      <WelcomeWeatherLogo src={WeatherIcons["04d"]}/>
+      <WelcomeWeatherLogo src={WeatherIcons["04d"]} />
       <ChooseCityLabel>Find Weather of your city</ChooseCityLabel>
       <SearchBox onSubmit={fetchWeather}>
-        <input
+        <InputCity
           onChange={(e) => updateCity(e.target.value)}
           placeholder="City"
         />
-        <button type={"submit"}>Search</button>
+        <ButtonSearch type={"submit"}>Search</ButtonSearch>
       </SearchBox>
     </>
-  )
+  );
 };
 
 export default CityComponent;

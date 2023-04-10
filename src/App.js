@@ -25,14 +25,17 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 380px;
+  width: 400px;
   padding: 20px 20px;
   margin: auto;
   color: white;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, .15);
+  background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
+  @media (max-width: 768px) {
+    width: 280px;
+  }
 `;
 
 const Title = styled.span`
@@ -48,7 +51,7 @@ function App() {
   const fetchWeather = async (e) => {
     e.preventDefault();
     const response = await Axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WHEATHER_KEY}`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WHEATHER_KEY}`
     );
     updateWeather(response.data);
   };
@@ -61,7 +64,7 @@ function App() {
         <CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
       )}
     </Card>
-  )
-};
+  );
+}
 
 export default App;
