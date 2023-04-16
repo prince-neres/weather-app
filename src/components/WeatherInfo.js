@@ -70,7 +70,7 @@ const InfoContainer = styled.div`
 const InfoIcon = styled.img`
   width: 30px;
   height: 3opx;
-  color: white;
+  color: #d8d4d4;
   fill: white;
 `;
 

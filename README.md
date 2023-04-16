@@ -13,12 +13,12 @@ Aplicação em React.Js que mostra as informações do clima em tempo real da ci
 
 <h3 align="center">Pesquisa de cidade</h3>
 <div align="center">
-  <img src="public/previews/search-city-weather.png" >
+  <img src="public/previews/search-city-weather.jpg" >
 </div>
 
 <h3 align="center">Clima da cidade</h3>
 <div align="center">
-  <img src="public/previews/city-weather.png" >
+  <img src="public/previews/city-weather.jpg" >
 </div>
 
 ## Tecnologias utilizadas:

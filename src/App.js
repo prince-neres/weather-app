@@ -26,19 +26,21 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   width: 400px;
+  height: auto;
   padding: 20px 20px;
   margin: auto;
-  color: white;
+  color: #d8d4d4;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  background-color: #4d4d4d;
+  border-radius: 10px;
+  background-color: #202020;
   @media (max-width: 768px) {
     width: 280px;
+    padding: 10px 10px;
   }
 `;
 
 const Title = styled.span`
-  color: white;
+  color: #d8d4d4;
   margin: 20px auto;
   font-size: 18px;
   font-weight: bold;
@@ -51,9 +53,15 @@ const Back = styled.button`
   margin-left: 0;
   cursor: pointer;
   border-radius: 10px;
+	otline: none;
   height: 40px;
-  background-color: gray;
-  color: white;
+  background-color: #2e2d2f	;
+  color: #d8d4d4;
+
+	&:hover {
+    background-color: #1a1a1a;
+		transition-duration: 0.5s	
+  }
 `;
 
 function App() {

@@ -8,8 +8,9 @@ const SearchBox = styled.form`
   justify-content: space-evenly;
   margin: 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   & input {
+    background-color: #d8d4d4;
     padding: 10px;
     font-size: 14px;
     border: none;
@@ -17,14 +18,20 @@ const SearchBox = styled.form`
     font-weight: bold;
   }
   & button {
-    background-color: white;
+    background-color: #d8d4d4;
     font-size: 14px;
     padding: 0 10px;
-    color: black;
+    color: #000000;
     border: none;
     outline: none;
     cursor: pointer;
     font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    & input {
+      width: 160px;
+    }
   }
 `;
 
